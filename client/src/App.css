@@ -1,0 +1,395 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style-type: none;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+}
+
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+
+}
+
+
+/* header */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 0px 10px;
+}
+
+/* search bar */
+.searchBar {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.searchbar {
+  border-radius: 50px;
+  border: .6px solid rgba(0, 0, 0, 0.723);
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  overflow: hidden;
+  height: 25px;
+  width: 150px;
+  padding: 3px 10px;
+}
+
+.searchbar input {
+  padding: 3px;
+
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-size: 12px;
+  width: 60%;
+}
+
+::placeholder {
+  color: #989898;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+/* logo */
+.logo {
+  flex: 1;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+  font-weight: bolder;
+  font-size: 9px;
+}
+
+.menus {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 2.9rem;
+
+}
+
+.menuList {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+}
+
+.menuBar {
+  /* background-color: red; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.3rem;
+}
+
+.actionuser {
+  background-color: black;
+  color: white;
+  font-size: 10px;
+  padding: 5px 12px 5px;
+  border: none;
+  border-radius: 50px;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.sign {
+  background-color: transparent;
+  color: black;
+  border: .7px solid black;
+  transition: 0.3s;
+}
+
+.s_link {
+  color: black;
+}
+
+.sign:hover {
+  background-color: black;
+  color: white;
+}
+
+.sign:hover .s_link {
+
+  color: white;
+}
+
+.log {
+  transition: 0.3s;
+}
+.l_link{
+  color: white;
+}
+.log:hover {
+  background-color: transparent;
+  color: black;
+}
+.log:hover .l_link{
+  color: black;
+}
+
+
+/* heading */
+.heading {
+  /* background: crimson; */
+  text-transform: capitalize;
+  text-align: center;
+  padding: 10px;
+  font-weight: bolder;
+  margin-top: 5px;
+  font-size: 18px;
+
+}
+
+/* infoContainer */
+
+.infoContainer {
+  /* background-color: red; */
+  padding: 10px;
+  display: flex;
+  margin: 30px auto;
+  max-width: 1100px;
+  justify-content: center;
+}
+
+.wrap {
+  display: flex;
+  gap: 20px;
+  /* background-color: rgb(194, 120, 120); */
+  margin: auto;
+  max-width: 950px;
+}
+
+.infoContainer .left {
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.infoIng {
+  width: 250px;
+  height: 250px;
+  overflow: hidden;
+}
+
+.infoIng img {
+  object-fit: fill;
+  height: 100%;
+}
+
+.infoContainer .right {
+  padding: 10px;
+}
+
+.date {
+  text-transform: capitalize;
+  font-weight: bolder;
+  font-size: 10px;
+}
+
+.date span {
+  font-weight: normal;
+  color: rgb(108, 108, 108);
+}
+
+.i_head {
+  /* background-color: red; */
+  margin-top: 10px;
+  text-transform: capitalize;
+  font-weight: 900;
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+}
+
+.infoPera {
+  font-size: 12px;
+  font-weight: 500;
+  padding-right: 30px;
+  margin-top: 3px;
+}
+
+.infoprofile {
+  margin-top: 20px;
+  display: flex;
+  gap: 4px;
+
+}
+
+.infoprofile img {
+  width: 35px;
+  height: 35px;
+}
+
+.profilename {
+  font-size: 12px;
+  font-weight: 900;
+
+}
+
+.pro p {
+  font-size: 9px;
+}
+
+
+/* /card */
+.postContainer {
+  /* background-color: crimson; */
+  padding: 10px;
+  height: auto;
+  margin: 30px auto;
+  max-width: 1100px;
+
+}
+
+.postlist {
+  /* background-color: cadetblue; */
+  padding: 10px;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.postlist .post {
+  background-color: white;
+  padding: 2px;
+  width: 300px;
+  /* height: 200px; */
+  overflow: hidden;
+}
+
+.p_img {
+  /* background-color: red; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 3px;
+}
+
+.p_img img {
+  object-fit: fill;
+  width: 100%;
+}
+
+.p_i {
+  /* background-color: darkkhaki; */
+  padding: 5px;
+  margin-top: 10px;
+}
+
+
+.i_head_p {
+  text-transform: capitalize;
+  font-size: 11px;
+  font-weight: bolder;
+  margin-top: 5px;
+}
+
+.pinfoPera {
+  margin-top: 10px;
+  font-size: 12px;
+  color: rgb(45, 45, 45);
+}
+
+.pinfoprofile {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.pinfoprofile img {
+  width: 30px;
+  height: 30px;
+}
+
+
+/* form */
+
+.manageForm {
+  margin: 20px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.manageForm h2 {
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 18px;
+}
+
+.manageForm form {
+  padding: 10px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 400px;
+
+}
+
+.lab_group {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.lab_group label {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 11px;
+}
+
+.lab_group input {
+  padding: 2px 5px;
+  width: 100%;
+  font-size: 12px;
+}
+
+.get {
+  /* background-color: red; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.get button {
+  width: 100%;
+  border: none;
+  background-color: rgb(0, 0, 0);
+  color: white;
+  font-size: 13px;
+  text-transform: capitalize;
+  padding: 6px 10px;
+  font-weight: bold;
+  border-radius: 3px;
+
+}
+
+.get button:hover {
+  background-color: transparent;
+  border: .8px solid black;
+  color: black;
+}
