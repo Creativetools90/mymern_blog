@@ -1,11 +1,25 @@
-import React from 'react'
+import React from "react";
 import "./Admin.css";
 import { Outlet } from "react-router-dom";
-import './root.css';
+import Admin from "./Admin";
+import "./root.css";
+import Cookies from "js-cookie";
 const AdminLayout = () => {
-  return (
-    <Outlet/>
-  )
-}
+  const isTokenSet = Cookies.get("AdminToken") || undefined;
+  if (isTokenSet) {
+    const AdminToken = Cookies.get("AdminToken");
+    console.log(AdminToken);
+    return(
+      <>
+       <Admin />
+      </>
+    )
+  } else {
+    console.log("token is not set");
 
-export default AdminLayout
+    window.location.href = "/Adminlogin";
+  } 
+ 
+};
+
+export default AdminLayout;

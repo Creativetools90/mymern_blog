@@ -1,7 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
 const AdminSatup = () => {
+    const Navigation = useNavigate();
     const handleSatup = (e)=>{
         e.preventDefault();
         const formData = new FormData(e.target);
@@ -13,15 +16,22 @@ const AdminSatup = () => {
         }
         if(user.confirm_pass === user.pass){
             axios
-           .post("http://localhost:4000/AdminSatup", UserEntry)
+           .post("http://localhost:4000/admin/AdminSatup", UserEntry)
            .then((res) => {
-             console.log(res.data.msg);
+             Navigation('/Adminlogin');
+             toast.success(res.data.msg, {
+               position: "top-right",
+               duration: 900,
+             });
            })
            .catch((e) => {
              console.log("err", e);
            });
         }else{
-            console.log("password is wrong")
+            toast.success("password is not match", {
+                position: "top-right",
+                duration: 900,
+              });
         }
        
     }

@@ -13,7 +13,7 @@ dotenv.config();
 app.use(express.json());
 app.use("/api", Route);
 app.use("/api", Authroute);
-app.use("/", Adminroute);
+app.use("/admin", Adminroute);
 
 // end
 // connect to mongoose
