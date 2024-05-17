@@ -45,3 +45,14 @@ export const AdminAllUser = async (req, res) => {
     res.status(403).json({ msg: "not users" });
   }
 };
+
+// get user from name and id
+export const AdminLoginUser = async (req, res) => {
+  try {
+    const user = await Admin.findById(req.params.id);
+    if (!user) return res.status(404).json({ msg: "User not found" });
+    res.status(200).json({ msg: "user found", user });
+  } catch (e) {
+    res.status(403).json({msg :"UserName not Exists"})
+  }
+};

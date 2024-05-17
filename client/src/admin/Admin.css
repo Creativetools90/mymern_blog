@@ -41,11 +41,12 @@ body {
 
 
 .leftPannel {
-    width: 220px;
+    width: 250px;
     display: flex;
     flex-direction: column;
     background-color: var(--c-dark2);
     border-right:  1px solid var(--c-p);
+    padding-left: 10px;
     
 }
 

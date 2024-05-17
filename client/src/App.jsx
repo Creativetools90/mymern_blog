@@ -8,6 +8,7 @@ import AdminLayout from "./admin/AdminLayout";
 import AdminLogin from "./admin/adminLogin/AdminLogin";
 import AdminSatup from "./admin/adminLogin/AdminSatup";
 import "./App.css";
+
 function App() {
   return (
     <>
