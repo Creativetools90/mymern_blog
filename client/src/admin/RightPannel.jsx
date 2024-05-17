@@ -1,8 +1,10 @@
 import React from 'react'
 import { useContext } from 'react'
 import { MyAdminContext } from './AdminContext';
+
 const RightPannel = () => {
-    const {AdminUserName} = useContext(MyAdminContext); //set context value 
+    const {AdminUserName} = useContext(MyAdminContext); //set context value
+    const {selectedOption } = useContext(MyAdminContext); 
   return (
     <>
      <div className="rightPannel">
@@ -26,7 +28,9 @@ const RightPannel = () => {
             </div>
           </nav>
         </div>
-        <div className="mainPannel"></div>
+        <div className="mainPannel">
+          {selectedOption}
+        </div>
       </div>
     </>
   )

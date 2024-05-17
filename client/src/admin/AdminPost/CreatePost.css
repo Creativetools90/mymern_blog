@@ -1,0 +1,8 @@
+.navigationBar{
+    background-color: crimson;
+    color: white;
+    padding: var(--p-10);
+}
+.Link{
+    color: white;
+}
