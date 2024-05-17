@@ -4,12 +4,31 @@ import { Link } from "react-router-dom";
 const CreatePost = () => {
   // const [content, setContent] = useState(''); // State to hold the content of the editor
   const editorRef = useRef(null);
+  const [activeMedia, setActiveMedia] = useState(false); // State to hold the
   const handleInput = (e) => {
     const content = editorRef.current.innerHTML;
     console.log(content);
   };
+  const doActiveMedia = () => {
+    setActiveMedia(!activeMedia);
+  };
   return (
     <>
+      <div
+        className={
+          activeMedia ? "uplodeMediaContainer" : "uplodeMediaContainerHide"
+        }
+      >
+        <div className="uplodeMedia">
+          <div className="chooseMedia">
+            <input type="file" />
+          </div>
+          <div className="previewMedia">
+            <button onClick={doActiveMedia} >close</button>
+            <img src="https://picsum.photos/200/200" alt="" />
+          </div>
+        </div>
+      </div>
       <section className="colSec">
         <div className="create_post_container">
           <div className="add">
@@ -23,7 +42,7 @@ const CreatePost = () => {
           </div>
           <div className="editor">
             <div className="addMedia">
-              <button>add media</button>
+              <button onClick={doActiveMedia}>add media</button>
             </div>
             <div className="addDataPost">
               <div
