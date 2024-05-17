@@ -28,8 +28,20 @@ export const AdminLogin = async (req, res) => {
     );
     // If email and password are correct, set the cookie
     res.cookie("AdminToken", Admintoken, { httpOnly: true });
-    res.status(200).json({ msg: "admin login successful", AdminLoginUser  ,Admintoken });
+    res
+      .status(200)
+      .json({ msg: "admin login successful", AdminLoginUser, Admintoken });
   } catch (err) {
     res.status(403).json({ msg: "Invalid Account" });
+  }
+};
+
+export const AdminAllUser = async (req, res) => {
+  try {
+    const AllUser = await Admin.find();
+    if (!AllUser) return res.status(404).json({ msg: "not users" });
+    res.status(200).json({ msg: "users found", AllUser });
+  } catch (err) {
+    res.status(403).json({ msg: "not users" });
   }
 };
