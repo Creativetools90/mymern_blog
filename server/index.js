@@ -2,16 +2,20 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
-import Route from "./Routes/userRoute.js"
-import Authroute from "./Routes/authRoute.js"
+import Route from "./Routes/userRoute.js";
+import Authroute from "./Routes/authRoute.js";
+import Adminroute from "./Routes/AdminRoute.js";
 const app = express();
 
 // make middleware Route middleware
 app.use(cors());
 dotenv.config();
 app.use(express.json());
-app.use("/api",Route);
-app.use("/api",Authroute);
+app.use("/api", Route);
+app.use("/api", Authroute);
+app.use("/", Adminroute);
+
+// end
 // connect to mongoose
 const url = process.env.database;
 mongoose
@@ -23,3 +27,4 @@ mongoose
     });
   })
   .catch(() => console.log("database not connected"));
+

@@ -65,7 +65,7 @@ const Header = () => {
             {isLoggedIn ? (
               <>
                <Link to="signup" className="link l_link">
-                  <button className="actionuser log">signup</button>
+                  <button className="actionuser log ">signup</button>
                 </Link>
                 <button onClick={logout} className="actionuser logout">logout</button>
               </>
