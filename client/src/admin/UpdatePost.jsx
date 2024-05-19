@@ -1,9 +1,10 @@
 import React from "react";
-import { useState } from "react";
+import { useState , useEffect } from "react";
 import BlogView from "./preview/BlogView";
 import CardView from "./preview/CardView";
 import { toast } from "react-hot-toast";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 const UpdatePost = () => {
   const [editmodeZoom, setEditmodeZoom] = useState(false);
   const [prewmodeZoom, setPrevmodeZoom] = useState(false);
@@ -13,6 +14,17 @@ const UpdatePost = () => {
   const [file, setFile] = useState("");
   const [tags, setTags] = useState([]);
   const [tagInput, setTagInput] = useState("");
+  const { id } = useParams();
+  const [updatePost , setUpdatePost] = useState({});
+  useEffect(() => {
+    axios.get(`http://localhost:4000/admin/getPost/${id}`)
+    .then((res)=>{
+        setUpdatePost(res.data.getPost);
+       
+    })
+    .catch((e)=>console.log("user not found",e));
+  }, [id]);
+//   console.log(updatePost)
   const editModeZoomhanddle = () => {
     setEditmodeZoom(!editmodeZoom);
   };
@@ -53,6 +65,7 @@ const UpdatePost = () => {
       console.log("error", e);
     }
   };
+
   return (
     <>
       <div className="createPostContainer">
@@ -82,7 +95,7 @@ const UpdatePost = () => {
             <input
               type="text"
               name="title"
-              value={title}
+              defaultValue={updatePost.title}
               onChange={(e) => setTitle(e.target.value)}
               placeholder="Enter your blog ttile"
             />
@@ -91,7 +104,7 @@ const UpdatePost = () => {
             <p className="about_pera">caption</p>
             <div
               className="captionEditor"
-              onInput={(e) => setCaptions(e.target.innerText)}
+              onInput={(e) => setCaptions(e.target.innerText )}
               contentEditable
             ></div>
             <div className="wordLenth">

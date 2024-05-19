@@ -25,7 +25,7 @@ function App() {
           <Route path="adminpost" element={<AdminPost/>} />  
           <Route path="adminsetting" element={<Setting/>} />  
           <Route path="createpost" element={<CreatePost/>} />  
-          <Route path="updatepost" element={<CreatePost/>} />  
+          <Route path="updatepost/:id" element={<UpdatePost/>} />  
         </Route>
         <Route path="/Adminlogin" element={<AdminLogin />} />
         <Route path="/AdminSatup" element={<AdminSatup />} />

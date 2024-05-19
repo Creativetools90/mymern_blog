@@ -29,3 +29,29 @@ export const getAllPost = async (req , res)=>{
 
   }
 }
+
+export const getPost = async (req ,res)=>{
+  try{
+    const getPost = await post.findById(req.params.id);
+    if (!getPost) return res.status(404).json({ msg: "post not found" });
+   
+    res.status(200).json({ msg: "post update done!", getPost });
+  }catch(e){
+    res.status(403).json({ msg: "post not updated"});
+
+  }
+}
+
+export const updatePost = async (req ,res)=>{
+  try{
+    const updateId = await post.findById(req.params.id);
+    if (!updateId) return res.status(404).json({ msg: "post not found" });
+    const update = await post.findByIdAndUpdate(updateId, req.body, { new: true });
+    res.status(200).json({ msg: "post update done!", update });
+  }catch(e){
+    res.status(403).json({ msg: "post not updated"});
+
+  }
+}
+
+

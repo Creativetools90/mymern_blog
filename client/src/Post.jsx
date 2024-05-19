@@ -25,7 +25,7 @@ const Post = () => {
             return(
               <li key={v._id} className="post">
           <div className="p_img">
-            <img src="/pic.jpg" alt="post" />
+            <img src={`/post/${v.img}`} alt="post" />
           </div>
           <div className="p_i">
             <p className="date">

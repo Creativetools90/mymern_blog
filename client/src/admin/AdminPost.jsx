@@ -54,7 +54,9 @@ const AdminPost = () => {
                       <p>2024-1-3 / 10:23pm</p>
                     </div>
                     <div className="info">
+                      <Link to={"/admin/updatepost/"+v._id} >
                       <button className="seen">read</button>
+                      </Link>
                       <button className="del">delete</button>
                     </div>
                   </div>
