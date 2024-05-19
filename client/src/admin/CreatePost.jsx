@@ -36,8 +36,12 @@ const CreatePost = () => {
                 <li className="mytag">coding</li>
             </ul>
           </div>
-          <div className="addImage"></div>
-          <div className="timeprosses"></div>
+          <div className="addImage">
+            
+          </div>
+          <div className="timeprosses">
+          <button>schedule</button>
+          </div>
         </div>
         <div className="prevideMode">
           <div className="preview_head">
