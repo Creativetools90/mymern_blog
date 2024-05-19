@@ -1,14 +1,21 @@
 import React from "react";
 import { useState } from "react";
+import BlogView from "./preview/BlogView";
+import CardView from "./preview/CardView";
 const CreatePost = () => {
   const [editmodeZoom, setEditmodeZoom] = useState(false);
   const [prewmodeZoom, setPrevmodeZoom] = useState(false);
+    const [viewMode , setViewMode] = useState('card');
   const editModeZoomhanddle = () => {
     setEditmodeZoom(!editmodeZoom);
   };
   const pewvModeZoomhanddle = () => {
     setPrevmodeZoom(!prewmodeZoom);
   };
+  const viewModehanddle = (Mode) => {
+    setViewMode(Mode);
+  };
+
   return (
     <>
       <div className="createPostContainer">
@@ -80,26 +87,35 @@ const CreatePost = () => {
           </div>
         </div>
         <div className={prewmodeZoom ? "prevideModeZoom" : "prevideMode"}>
+          <div className="zoom">
+            <img
+              width="25"
+              height="25"
+              onClick={pewvModeZoomhanddle}
+              src="https://img.icons8.com/ios/50/expand--v1.png"
+              alt="expand--v1"
+            />
+          </div>
           <div className="preview_head">
-            <div className="zoom">
-              <img
-                width="25"
-                height="25"
-                onClick={pewvModeZoomhanddle}
-                src="https://img.icons8.com/ios/50/expand--v1.png"
-                alt="expand--v1"
-              />
-            </div>
             <h3>preview</h3>
+
             <p className="prePera">
               Preview shows how you content will look when publihsed. Social
               network updates may after its final appearence.{" "}
               <a href="">please report then</a>
             </p>
           </div>
-          <div className="previde_mode_switch"></div>
-          <div className="cardPewview"></div>
-          <div className="moreInfoPewview"></div>
+          <div className="previde_mode_switch">
+            <button onClick={()=>viewModehanddle('card')} >card View</button>
+            <button  onClick={()=>viewModehanddle('blog')} >BLog view</button>
+          </div>
+          {
+            viewMode === 'card'? (
+              <CardView />
+            ) : (
+              <BlogView />
+            )
+          }
         </div>
       </div>
     </>
