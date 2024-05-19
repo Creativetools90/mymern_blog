@@ -1,11 +1,12 @@
-import React from 'react'
+import React from "react";
 import dashborad from "/adminAssets/icon/dash.svg";
 import peaple from "/adminAssets/icon/peaple.svg";
 import post from "/adminAssets/icon/post.svg";
 import admin from "/adminAssets/icon/admin.svg";
+import { Link } from "react-router-dom";
 const LeftPannel = () => {
   return (
-    <div className='leftPannel' >
+    <div className="leftPannel">
       <div className="left_optionMenuBar">
         <ul className="meus_option">
           <li className="a_link">
@@ -18,11 +19,15 @@ const LeftPannel = () => {
           </li>
           <li className="a_link">
             <img src={post} alt="" />
-            <span>post</span>
+            <Link to="adminpost" className="link">
+              <span>post</span>
+            </Link>
           </li>
           <li className="a_link">
             <img src={admin} alt="" />
-            <span>Administration</span>
+            <Link to="adminsetting">
+              <span>Administration</span>
+            </Link>
           </li>
         </ul>
       </div>
@@ -32,7 +37,7 @@ const LeftPannel = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default LeftPannel
+export default LeftPannel;

@@ -65,7 +65,7 @@ const AdminLayout = () => {
        <div className="admiwrapper">
        <LeftPannel />
         <RightPannel>   
-          {/* <Outlet /> */}
+          <Outlet />
         </RightPannel>
        </div>
 
