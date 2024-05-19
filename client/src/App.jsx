@@ -9,6 +9,7 @@ import AdminSatup from "./admin/adminLogin/AdminSatup";
 import AdminPost from "./admin/AdminPost";
 import Setting from "./admin/Setting";
 import CreatePost from "./admin/CreatePost";
+import UpdatePost from "./admin/UpdatePost";
 import "./App.css";
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
           <Route path="adminpost" element={<AdminPost/>} />  
           <Route path="adminsetting" element={<Setting/>} />  
           <Route path="createpost" element={<CreatePost/>} />  
+          <Route path="updatepost" element={<CreatePost/>} />  
         </Route>
         <Route path="/Adminlogin" element={<AdminLogin />} />
         <Route path="/AdminSatup" element={<AdminSatup />} />

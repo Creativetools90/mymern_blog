@@ -1,11 +1,6 @@
 import React from "react";
 import "./Card.css";
-const WordLimit = ({word , limit})=>{
-  const wd = word.split(' ');
-  const truncatedText = wd.slice(0, limit).join(' ');
-
-  return <>{truncatedText}</>;
-}
+import WordLimit from "../../WordLimit";
 const CardView = ({ imgUrl, getTitle, getCaption }) => {
 
   return (
@@ -27,7 +22,7 @@ const CardView = ({ imgUrl, getTitle, getCaption }) => {
               </h2>
             </div>
             <p className="pinfoPera">
-            <WordLimit  word={getCaption} limit={30} />
+            <WordLimit  text={getCaption} limit={30} />
             </p>
             <div className="pinfoprofile">
               <img src="/profile.png" alt="profile" />

@@ -1,10 +1,29 @@
-import React from "react";
-
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import WordLimit from "./WordLimit";
 const Post = () => {
+  const [post, setPost] = useState([]);
+  useEffect(() => {
+    const getpost = async () => {
+      try {
+        const response = await axios.get(
+          "http://localhost:4000/admin/getAllPost"
+        );
+        setPost(response.data.myPost);
+      } catch (error) {
+        console.log("Error fetching posts:", error);
+      }
+    };
+
+    getpost();
+  }, []);
   return (
     <div className="postContainer">
       <ul className="postlist">
-        <li className="post">
+        {
+          post.map((v , i)=>{
+            return(
+              <li key={v._id} className="post">
           <div className="p_img">
             <img src="/pic.jpg" alt="post" />
           </div>
@@ -14,13 +33,14 @@ const Post = () => {
             </p>
             <div className="i_head_p">
               <h2 className="infoHeading">
-                your most unhappy constomor are your gratest source of learning
+               {
+                v.title
+               }
               </h2>
             </div>
             <p className="pinfoPera">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Aspernatur iste ut atque inventore. Esse architecto expedita
-              explicabo voluptates in beatae.
+          
+               <WordLimit text={v.caption} limit={20} />
             </p>
             <div className="pinfoprofile">
               <img src="/profile.png" alt="profile" />
@@ -31,141 +51,9 @@ const Post = () => {
             </div>
           </div>
         </li>
-        <li className="post">
-          <div className="p_img">
-            <img src="/pic.jpg" alt="post" />
-          </div>
-          <div className="p_i">
-            <p className="date">
-              busnuess travel <span> - may 2, 2024</span>
-            </p>
-            <div className="i_head_p">
-              <h2 className="infoHeading">
-                your most unhappy constomor are your gratest source of learning
-              </h2>
-            </div>
-            <p className="pinfoPera">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Aspernatur iste ut atque inventore. Esse architecto expedita
-              explicabo voluptates in beatae.
-            </p>
-            <div className="pinfoprofile">
-              <img src="/profile.png" alt="profile" />
-              <div className="pro">
-                <h3 className="profilename">creativemoon</h3>
-                <p>ceo of creativemoon</p>
-              </div>
-            </div>
-          </div>
-        </li>
-        <li className="post">
-          <div className="p_img">
-            <img src="/pic.jpg" alt="post" />
-          </div>
-          <div className="p_i">
-            <p className="date">
-              busnuess travel <span> - may 2, 2024</span>
-            </p>
-            <div className="i_head_p">
-              <h2 className="infoHeading">
-                your most unhappy constomor are your gratest source of learning
-              </h2>
-            </div>
-            <p className="pinfoPera">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Aspernatur iste ut atque inventore. Esse architecto expedita
-              explicabo voluptates in beatae.
-            </p>
-            <div className="pinfoprofile">
-              <img src="/profile.png" alt="profile" />
-              <div className="pro">
-                <h3 className="profilename">creativemoon</h3>
-                <p>ceo of creativemoon</p>
-              </div>
-            </div>
-          </div>
-        </li>
-        <li className="post">
-          <div className="p_img">
-            <img src="/pic.jpg" alt="post" />
-          </div>
-          <div className="p_i">
-            <p className="date">
-              busnuess travel <span> - may 2, 2024</span>
-            </p>
-            <div className="i_head_p">
-              <h2 className="infoHeading">
-                your most unhappy constomor are your gratest source of learning
-              </h2>
-            </div>
-            <p className="pinfoPera">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Aspernatur iste ut atque inventore. Esse architecto expedita
-              explicabo voluptates in beatae.
-            </p>
-            <div className="pinfoprofile">
-              <img src="/profile.png" alt="profile" />
-              <div className="pro">
-                <h3 className="profilename">creativemoon</h3>
-                <p>ceo of creativemoon</p>
-              </div>
-            </div>
-          </div>
-        </li>
-        <li className="post">
-          <div className="p_img">
-            <img src="/pic.jpg" alt="post" />
-          </div>
-          <div className="p_i">
-            <p className="date">
-              busnuess travel <span> - may 2, 2024</span>
-            </p>
-            <div className="i_head_p">
-              <h2 className="infoHeading">
-                your most unhappy constomor are your gratest source of learning
-              </h2>
-            </div>
-            <p className="pinfoPera">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Aspernatur iste ut atque inventore. Esse architecto expedita
-              explicabo voluptates in beatae.
-            </p>
-            <div className="pinfoprofile">
-              <img src="/profile.png" alt="profile" />
-              <div className="pro">
-                <h3 className="profilename">creativemoon</h3>
-                <p>ceo of creativemoon</p>
-              </div>
-            </div>
-          </div>
-        </li>
-        <li className="post">
-          <div className="p_img">
-            <img src="/pic.jpg" alt="post" />
-          </div>
-          <div className="p_i">
-            <p className="date">
-              busnuess travel <span> - may 2, 2024</span>
-            </p>
-            <div className="i_head_p">
-              <h2 className="infoHeading">
-                your most unhappy constomor are your gratest source of learning
-              </h2>
-            </div>
-            <p className="pinfoPera">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Aspernatur iste ut atque inventore. Esse architecto expedita
-              explicabo voluptates in beatae.
-            </p>
-            <div className="pinfoprofile">
-              <img src="/profile.png" alt="profile" />
-              <div className="pro">
-                <h3 className="profilename">creativemoon</h3>
-                <p>ceo of creativemoon</p>
-              </div>
-            </div>
-          </div>
-        </li>
+            )
+          })
+        }
       </ul>
     </div>
   );

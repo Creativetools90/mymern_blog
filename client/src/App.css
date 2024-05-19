@@ -268,14 +268,13 @@ main {
   gap: 20px;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .postlist .post {
   background-color: white;
   padding: 2px;
   width: 300px;
-  /* height: 200px; */
   overflow: hidden;
 }
 

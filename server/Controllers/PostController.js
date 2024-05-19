@@ -23,7 +23,7 @@ export const getAllPost = async (req , res)=>{
   try{
     const myPost = await post.find();
     if (!myPost) return res.status(404).json({ msg: "post not found" });
-    res.status(200).json({ msg: "post found", data: myPost});
+    res.status(200).json({ msg: "post found", myPost});
   }catch (e) {
     res.status(403).json({ msg: "post not file"});
 
