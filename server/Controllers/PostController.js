@@ -9,8 +9,10 @@ export const CreatePost = async (req, res) => {
       img: req.file.filename,
     });
     const savePost = await postData.save();
+
     res.status(200).json({ msg: "post create create ", data: savePost});
   } catch (e) {
-    res.status(403).json({ msg: err.message });
+    res.status(403).json({ msg: "post not create"});
+
   }
 };

@@ -413,8 +413,17 @@
     font-size: 40px;
     padding: 20px;
     overflow: auto;
+    position: relative;
 }
-
+.wordLenth{
+    /* background-color: red; */
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    font-size: 24px;
+    font-weight: bold;
+}
 .draft{
     display: flex;
     align-items: center;

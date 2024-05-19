@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import BlogView from "./preview/BlogView";
 import CardView from "./preview/CardView";
+import {toast} from "react-hot-toast";
 import axios from "axios";
 const CreatePost = () => {
   const [editmodeZoom, setEditmodeZoom] = useState(false);
@@ -32,23 +33,31 @@ const CreatePost = () => {
     formData.append("caption", capttion);
     formData.append("file", file);
     formData.append("tag", tags);
-
-   try{
-    await axios.post("http://localhost:4000/admin/createPost",formData)
-    .then((res)=>{
-        console.log(res.data);
-    })
-    .catch((e)=>{
-        console.log("err",e);
-    })
-   }catch(e){
-    console.log("error",e);
-   }
+    
+    try {
+      await axios
+        .post("http://localhost:4000/admin/createPost", formData)
+        .then((res) => {
+          
+          toast.success(res.data.msg, {
+            position: "top-right",
+            duration: 900,
+          });
+        })
+        .catch((e) => {
+          toast.error(e.response.data.msg, {
+            position: "top-right",
+            duration: 900,
+          });
+        });
+    } catch (e) {
+      console.log("error", e);
+    }
   };
   return (
     <>
       <div className="createPostContainer">
-        <div  className={editmodeZoom ? "editModeZoom" : "editMode"}>
+        <div className={editmodeZoom ? "editModeZoom" : "editMode"}>
           <div className="head">
             new post
             <img
@@ -67,7 +76,7 @@ const CreatePost = () => {
               <p>root</p>
             </div>
             <div className="save">
-              <button  onClick={handleSubitForm} >save post</button>
+              <button onClick={handleSubitForm}>save post</button>
             </div>
           </div>
           <div className="addTag  titleBar">
@@ -85,7 +94,13 @@ const CreatePost = () => {
               className="captionEditor"
               onInput={(e) => setCaptions(e.target.innerText)}
               contentEditable
-            ></div>
+            >
+              
+            </div>
+            <div className="wordLenth">
+                <p>{capttion.length}</p>
+              </div>
+
             <div className="draft">
               <input type="checkbox" name="draft" id="draft" />
               <p>this is a draft</p>
@@ -137,7 +152,6 @@ const CreatePost = () => {
                   <img src={URL.createObjectURL(file)} alt="" />
                 </div>
               )}
-             
             </div>
           </div>
           <div className="timeprosses">
