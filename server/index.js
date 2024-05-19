@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 import Route from "./Routes/userRoute.js";
 import Authroute from "./Routes/authRoute.js";
 import Adminroute from "./Routes/AdminRoute.js";
+import PostRoute from "./Routes/PostRoute.js";
 const app = express();
 
 // make middleware Route middleware
@@ -14,6 +15,8 @@ app.use(express.json());
 app.use("/api", Route);
 app.use("/api", Authroute);
 app.use("/admin", Adminroute);
+app.use("/admin", PostRoute);
+
 
 // end
 // connect to mongoose
@@ -27,4 +30,3 @@ mongoose
     });
   })
   .catch(() => console.log("database not connected"));
-

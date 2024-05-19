@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import BlogView from "./preview/BlogView";
 import CardView from "./preview/CardView";
+import axios from "axios";
 const CreatePost = () => {
   const [editmodeZoom, setEditmodeZoom] = useState(false);
   const [prewmodeZoom, setPrevmodeZoom] = useState(false);
@@ -24,22 +25,30 @@ const CreatePost = () => {
     setTags([...tags, tagInput]);
     setTagInput("");
   };
-  const handleSubitForm = (e) => {
+  const handleSubitForm = async (e) => {
     e.preventDefault();
     const formData = new FormData();
     formData.append("title", title);
-    formData.append("captions", capttion);
+    formData.append("caption", capttion);
     formData.append("file", file);
-    formData.append("tags", tags);
-    console.log(title);
-    console.log(capttion);
-    console.log(tags);
-    console.log(file);
+    formData.append("tag", tags);
+
+   try{
+    await axios.post("http://localhost:4000/admin/createPost",formData)
+    .then((res)=>{
+        console.log(res.data);
+    })
+    .catch((e)=>{
+        console.log("err",e);
+    })
+   }catch(e){
+    console.log("error",e);
+   }
   };
   return (
     <>
       <div className="createPostContainer">
-        <div className={editmodeZoom ? "editModeZoom" : "editMode"}>
+        <div  className={editmodeZoom ? "editModeZoom" : "editMode"}>
           <div className="head">
             new post
             <img
@@ -58,13 +67,14 @@ const CreatePost = () => {
               <p>root</p>
             </div>
             <div className="save">
-              <button onClick={handleSubitForm}>save post</button>
+              <button  onClick={handleSubitForm} >save post</button>
             </div>
           </div>
           <div className="addTag  titleBar">
             <input
               type="text"
               name="title"
+              value={title}
               onChange={(e) => setTitle(e.target.value)}
               placeholder="Enter your blog ttile"
             />
@@ -118,7 +128,7 @@ const CreatePost = () => {
                 <input
                   type="file"
                   onChange={(e) => setFile(e.target.files[0])}
-                  name="image"
+                  name="img"
                   id="image"
                 />
               </div>
