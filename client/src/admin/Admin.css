@@ -312,6 +312,22 @@
     overflow-y: auto;
     height: 900px;
 }
+.editModeZoom{
+    background-color: rgb(252, 252, 252);
+    padding: 15px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    border-radius: 10px;
+    overflow-y: auto;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
 .head{
     border-bottom:  1px solid black;
     padding: 10px;
@@ -320,6 +336,9 @@
     font-family: serif;
     text-transform: capitalize;
     padding-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 .userprofile{
     padding: 20px;
@@ -498,9 +517,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+    border-radius: 8px;
 }
 
-
+.add img{
+    width: 100%;
+    height: 100%;
+}
 
 
 
@@ -513,4 +537,14 @@
     background-color: powderblue;
     padding: 10px;
     height: 900px;
+}
+.prevideModeZoom{
+    background-color: powderblue;
+    padding: 10px;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    
 }
