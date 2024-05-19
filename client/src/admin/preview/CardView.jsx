@@ -1,12 +1,19 @@
 import React from "react";
 import "./Card.css";
-const CardView = () => {
+const WordLimit = ({word , limit})=>{
+  const wd = word.split(' ');
+  const truncatedText = wd.slice(0, limit).join(' ');
+
+  return <>{truncatedText}</>;
+}
+const CardView = ({ imgUrl, getTitle, getCaption }) => {
+
   return (
     <div className="cardView">
       <ul className="postlistCard">
         <li className="post">
           <div className="p_img">
-            <img src="/pic.jpg" alt="post" />
+          {imgUrl && <img src={imgUrl} alt="post" />}
           </div>
           <div className="p_i">
             <p className="date">
@@ -14,13 +21,13 @@ const CardView = () => {
             </p>
             <div className="i_head_p">
               <h2 className="infoHeading">
-                your most unhappy constomor are your gratest source of learning
+              {
+                getTitle
+              }
               </h2>
             </div>
             <p className="pinfoPera">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Aspernatur iste ut atque inventore. Esse architecto expedita
-              explicabo voluptates in beatae.
+            <WordLimit  word={getCaption} limit={30} />
             </p>
             <div className="pinfoprofile">
               <img src="/profile.png" alt="profile" />

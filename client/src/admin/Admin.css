@@ -4,7 +4,7 @@
 }
 
 .adminController {
-    background-color: #F7F7F7;
+    background-color: #edecec;
     padding: 5px;
     display: flex;
     gap: 5px;
@@ -18,6 +18,8 @@
     display: flex;
     gap: 10px;
     height: 100%;
+
+    padding: 5px;
 }
 
 /* top bar  */
@@ -153,13 +155,14 @@
     box-shadow: rgba(146, 146, 146, 0.1) 0px 1px 3px 0px, rgba(148, 148, 148, 0.06) 0px 1px 2px 0px;
     padding: 5px;
     flex: 1;
+    overflow: hidden;
 }
 
 
 /* admin post styling */
 
 .mainMenu {
-    background-color: white;
+  background-color: rgb(255, 255, 255);
     padding: 5px;
     width: 100%;
     height: 100%;
@@ -197,13 +200,15 @@
 }
 
 .postList {
-    padding: 3px;
+    padding: 10px;
     display: flex;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: start;
     flex-wrap: wrap;
-    gap: 15px;
+    gap: 19px;
     overflow-y: scroll;
     height: 500px;
+    background-color: peachpuff;
 
 }
 
@@ -292,9 +297,10 @@
 
 .createPostContainer{
     background-color: #f8f8f8;
+
     padding: 10px;
     width: 100%;
-    height: 100%;
+    height: auto;
     display: flex;
     gap: 20px;
     justify-content: space-between;
@@ -305,13 +311,15 @@
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     background-color: rgb(252, 252, 252);
     padding: 15px;
+   
+    padding-bottom: 40px;
     flex: 1;
     display: flex;
     flex-direction: column;
     gap: 40px;
     border-radius: 10px;
     overflow-y: auto;
-    height: 1000px;
+    height: 700px;
 }
 .editModeZoom{
     background-color: rgb(252, 252, 252);
@@ -332,7 +340,7 @@
 .head{
     border-bottom:  1px solid black;
     padding: 10px;
-    font-size: 50px;
+    font-size: 35px;
     font-weight: bold;
     font-family: serif;
     text-transform: capitalize;
@@ -367,7 +375,7 @@
     gap: 13px;
 }
 .pic p{
-    font-size: 30px;
+    font-size: 25px;
     font-weight: bold;
     text-transform: capitalize;
 }
@@ -380,8 +388,8 @@
 .save button{
     background-color: black;
     color: white;
-    font-size: 25px;
-    padding: 16px 40px;
+    font-size: 20px;
+    padding: 12px 30px;
     text-transform: capitalize;
     font-weight: bold;
     border-radius: 50px;
@@ -410,13 +418,12 @@
     margin-top: 20px;
     width: 100%;
     border-radius: 8px;
-    font-size: 40px;
+    font-size: 35px;
     padding: 20px;
     overflow: auto;
     position: relative;
 }
 .wordLenth{
-    /* background-color: red; */
     padding: 10px;
     display: flex;
     align-items: center;
@@ -458,7 +465,7 @@
     width: 100%;
     height: 100%;
     padding: 10px;
-    font-size: 40px;
+    font-size: 35px;
     font-weight: bold;
     border: none;
     outline: none;
@@ -466,7 +473,8 @@
 .addTag input::placeholder{
     
     font-weight: bold;
-    font-size: 40px;
+    font-size: 35px;
+    text-transform: capitalize;
 }
 .addTag button{
     background-color: black;
@@ -545,10 +553,12 @@
 
 .prevideMode{
     background-color: rgb(255, 255, 255);
-    padding: 10px;
-    height: auto;
-    width: 800px;
+    padding: 10px 20px;
+    height: 700px;
+    width: 550px;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    overflow-y: scroll;
+    /* overflow-x: hidden; */
 }
 .prevideModeZoom{
     background-color: rgb(249, 249, 249);
@@ -617,4 +627,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+
+@media screen and (max-width: 1700px) {
+    .adminController {
+        height: auto;
+    }
+    
 }

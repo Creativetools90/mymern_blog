@@ -1,6 +1,6 @@
 import express from "express";
 import multer from "multer";
-import { CreatePost } from "../Controllers/PostController.js";
+import { CreatePost ,getAllPost } from "../Controllers/PostController.js";
 const PostRoute = express.Router();
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -12,4 +12,5 @@ const storage = multer.diskStorage({
 });
 const uploade = multer({ storage });
 PostRoute.post("/createPost", uploade.single("file"), CreatePost);
+PostRoute.get("/getAllPost",getAllPost);
 export default PostRoute;

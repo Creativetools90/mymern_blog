@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import BlogView from "./preview/BlogView";
 import CardView from "./preview/CardView";
-import {toast} from "react-hot-toast";
+import { toast } from "react-hot-toast";
 import axios from "axios";
 const CreatePost = () => {
   const [editmodeZoom, setEditmodeZoom] = useState(false);
@@ -33,12 +33,11 @@ const CreatePost = () => {
     formData.append("caption", capttion);
     formData.append("file", file);
     formData.append("tag", tags);
-    
+
     try {
       await axios
         .post("http://localhost:4000/admin/createPost", formData)
         .then((res) => {
-          
           toast.success(res.data.msg, {
             position: "top-right",
             duration: 900,
@@ -94,12 +93,10 @@ const CreatePost = () => {
               className="captionEditor"
               onInput={(e) => setCaptions(e.target.innerText)}
               contentEditable
-            >
-              
-            </div>
+            ></div>
             <div className="wordLenth">
-                <p>{capttion.length}</p>
-              </div>
+              <p>{capttion.length}</p>
+            </div>
 
             <div className="draft">
               <input type="checkbox" name="draft" id="draft" />
@@ -182,7 +179,15 @@ const CreatePost = () => {
             <button onClick={() => viewModehanddle("blog")}>BLog view</button>
           </div>
           <div className="view">
-            {viewMode === "card" ? <CardView /> : <BlogView />}
+            {viewMode === "card" ? (
+              <CardView
+                imgUrl={file ? URL.createObjectURL(file) : ""}
+                getTitle={title}
+                getCaption={capttion}
+              />
+            ) : (
+              <BlogView />
+            )}
           </div>
         </div>
       </div>
