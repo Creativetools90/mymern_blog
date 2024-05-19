@@ -1,166 +1,140 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    list-style-type: none;
-    text-decoration: none;
-}
-
-:root {
-    --p-5: 5px;
-    --p-10: 10px;
-    --p-15: 15px;
-    --p-20: 20px;
-    --p-25: 25px;
-    --p-30: 30px;
-    --c-p :#CE1F6E;
-    --c-yellow :#ffc108;
-    --c-green :#00d15b;
-    --c-blue :#0d6dfc;
-    --c-dark :#000000;
-    --c-dark2 :#0e1014;
-}
-
-body {
-
-    font-family: Arial, Helvetica, sans-serif;
-    width: 100%;
-    min-height: 100vh;
-    user-select: none;
-}
-
-.admin {
-    background-color: var(--c-dark);
-    width: 100%;
+.adminController {
+    background-color: orchid;
+    padding: 5px;
+    display: flex;
+    gap: 5px;
     height: 100vh;
-    color: white;
-    display: flex;
-  
-}
-
-
-
-.leftPannel {
-    width: 250px;
-    display: flex;
     flex-direction: column;
-    background-color: var(--c-dark2);
-    border-right:  1px solid var(--c-p);
-    padding-left: 10px;
-    
 }
 
-.rightPannel {
-    background-color: var(--c-dark);
-    flex: 1;
-}
-
-.topPannel{
-    border-bottom:  1px solid var(--c-p);
-    padding-bottom: var(--p-5);
-}
-.topNav{
-    background-color: var(--c-dark2);
-    color: white;
+.admiwrapper {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: var(--p-15);
-}
-.wrap_m {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-.user_verfity{
-    display: flex;
-    align-items: center;
-    padding-right: var(--p-10);
-    gap: 5px;
-}
-.topNav img{
-    width: 40px;
-    height: 40px;
-}
-
-.user_profile{
-    display: flex;
-    align-items: center;
-    margin-left: 10px;
-}
-.option_open_msg{
-    padding: var(--p-5);
-    margin-left: 30px;
-    text-transform: capitalize;
-    font-size: 19px;
-    letter-spacing: 1px;
-    font-weight:400;
-    color: var(--c-green);
-}
-.user_name h2{
-    font-size: 18px;
-    text-transform: capitalize;    font-weight: bold;
-    color: rgba(255, 255, 255, 0.804);
-}
-
-/* left */
-.admin_logo {
-   margin-top: var(--p-10);
-    padding: var(--p-10);
-}
-.admin_logo h2{
-    text-transform: uppercase;
-    color: var(--c-p);
-    font-weight: bolder;
-}
-
-.options {
-    /* background: rgb(7, 7, 7); */
-    padding: var(--p-5);
-    margin-top: 20px;
+    gap: 10px;
     height: 100%;
 }
 
-.logout_bar {
-    /* background-color: rgb(0, 0, 0); */
-    padding: var(--p-15);
-    display: flex;
-    margin-top: 100px;
-    justify-content: center;
-
-}
-.logout_bar a{
-    color: white;
-    border: 1px solid var(--c-p);
-    padding: 10px 40px 15px;
-    border-radius: 7px;
-}
-.op_list{
-    /* background-color: darkcyan; */
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin-top: 10px;
-}
-.op_list img{
-    width: 23px;
-    height: 23px;
-}
-.use_op_list{
+/* top bar  */
+.topPannel {
+    background-color: white;
     display: flex;
     align-items: center;
-    gap: 10px;
-    transition: 0.3s;
-    padding: 5px;
-    cursor: pointer;
-    font-size: 20px;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+/* top header */
+.profile {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 115px;
+}
+
+.profile_pic {
+    overflow: hidden;
+    border-radius: 50px;
+    width: 35px;
+    height: 35px;
+}
+
+.profile_pic img {
+    width: 100%;
+    height: 100%;
+}
+
+.userprofilepack {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.userprofilepack h3 {
+    font-size: 15px;
+    text-transform: capitalize;
+}
+
+.down_menu {
+    display: flex;
+    align-items: center;
+}
+
+
+
+/* end */
+
+
+/* start leftpannel styling */
+.leftPannel {
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+
+.meus_option {
+   cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.a_link {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 7px 15px;
+}
+.a_link:hover {
+    background-color: #2f81ed2a;
+    color: #2F80ED;
+    border-radius: 4px;
+}
+
+.exitBar{
+    border-top: 1px solid #2f81edb8;
+}
+.bar_e {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+.bar_e button{
+    border:none;
+    padding: 7px 30px;
+    background-color: #2F80ED;
+    color: white;
+    border-radius: 7px;
     text-transform: capitalize;
     font-weight: 600;
+    font-size: 13px;
+    transition: 0.3s;
 }
-.use_op_list:hover{
-    background-color: rgba(31, 34, 48, 0.574);
-    color: white;
-    padding:10px 20px 12px ;
-    border-top-right-radius: 25px;
-    border-bottom-right-radius: 25px;
+.bar_e button:hover{
+    border: 1px solid #2f81edb8;
+    color: black;
+    background-color: transparent;
+}
+
+
+
+
+
+
+
+
+/* end */
+
+.rightpannel {
+    background-color: rgb(27, 188, 180);
+    padding: 10px;
+    flex: 1;
 }

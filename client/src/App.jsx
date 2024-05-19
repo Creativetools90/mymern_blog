@@ -3,11 +3,11 @@ import Layout from "./Layout";
 import { Route, Routes } from "react-router-dom";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-import Admin from "./admin/Admin";
 import AdminLayout from "./admin/AdminLayout";
 import AdminLogin from "./admin/adminLogin/AdminLogin";
 import AdminSatup from "./admin/adminLogin/AdminSatup";
-import CreatePost from "./admin/AdminPost/CreatePost";
+import AdminPost from "./admin/AdminPost";
+import Setting from "./admin/Setting";
 import "./App.css";
 
 function App() {
@@ -19,8 +19,10 @@ function App() {
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<Signup />} />
         </Route>
-        <Route path="/admin" element={<AdminLayout />} />
-        <Route path="/createPost" element={<CreatePost/>} />
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route path="adminpost" element={<AdminPost/>} />  
+          <Route path="adminsetting" element={<Setting/>} />  
+        </Route>
         <Route path="/Adminlogin" element={<AdminLogin />} />
         <Route path="/AdminSatup" element={<AdminSatup />} />
       </Routes>

@@ -1,17 +1,16 @@
-import React, { useState, useEffect , useContext } from "react";
-import "./Admin.css";
-import "./root.css";
-import Admin from "./Admin";
+import React, { useState, useEffect, useContext } from "react";
 import Cookies from "js-cookie";
-import AdminContext from "./AdminContext";
-import { MyAdminContext } from "./AdminContext"; // Assuming this is for another context
+import { MyAdminContext } from "./AdminContext";
 import axios from "axios";
-
+import { Outlet } from "react-router-dom";
+import LeftPannel from "./LeftPannel";
+import RightPannel from "./RightPannel";
+import TopPanel from "./TopPanel";
+import './Admin.css';
 const AdminLayout = () => {
-  // const [verifyUser, setVerifyUser] = useState([]);
-  const [isLoading, setIsLoading] = useState(false); // Track loading state
-  const [error, setError] = useState(null); // Track any errors
-  const {AdminUserName ,setAdminUserName} = useContext(MyAdminContext); //set context value 
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const { AdminUserName, setAdminUserName } = useContext(MyAdminContext);
   const isTokenSet = Cookies.get("AdminToken") || undefined;
 
   useEffect(() => {
@@ -37,7 +36,9 @@ const AdminLayout = () => {
       const userInfo = decodeToken(AdminToken);
 
       try {
-        const response = await axios.get(`http://localhost:4000/admin/AdminLogin/${userInfo.AdminId}`);
+        const response = await axios.get(
+          `http://localhost:4000/admin/AdminLogin/${userInfo.AdminId}`
+        );
         setAdminUserName(response.data.user);
       } catch (err) {
         console.error("Error fetching data:", err);
@@ -59,9 +60,18 @@ const AdminLayout = () => {
   }
   return (
     <>
-      
-        <Admin/>
+      <section className="adminController" >
+        <TopPanel />
+       <div className="admiwrapper">
+       <LeftPannel />
+        <RightPannel>   
+          {/* <Outlet /> */}
+        </RightPannel>
+       </div>
 
+        
+       
+      </section>
     </>
   );
 };

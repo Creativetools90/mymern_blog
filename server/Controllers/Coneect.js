@@ -1,4 +1,5 @@
 import Admin from "../Models/AdminModel.js";
+
 import jwt from "jsonwebtoken";
 export const AdminSatup = async (req, res) => {
   try {
@@ -6,7 +7,7 @@ export const AdminSatup = async (req, res) => {
     if (!CreateAdminUser)
       return res.status(404).json({ msg: "user not found" });
     const saveData = await CreateAdminUser.save();
-    res.status(200).json({ msg: "register successfully", saveData });
+    res.status(200).json({ msg: "register successfully", saveData  });
   } catch (e) {
     res.status(403).json({ msg: "UserName already Exists" });
   }

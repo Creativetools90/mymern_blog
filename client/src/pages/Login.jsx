@@ -20,19 +20,17 @@ const Login = () => {
               window.location.href = "/";
               const token = res.data.token;
               Cookies.set("token", token);
-              const a = Cookies.get("token");
-              console.log("c",a);
             })
             .catch((err) => {
              
-            //   toast.error(err.response.data.msg, {
-            //     position: "top-right",
-            //     duration: 900,
-            //   });
-            console.log("not login")
+              toast.error(err.response.data.msg, {
+                position: "top-right",
+                duration: 900,
+              });
+            
             });
         } catch (e) {
-          console.log("error", e);
+          console.log("error");
         }
       };
   return (
