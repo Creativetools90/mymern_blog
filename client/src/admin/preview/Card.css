@@ -1,0 +1,63 @@
+.cardView{
+ margin-top: 10px;
+    width: 800px;
+}
+.postlistCard {
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .postlistCard .post {
+    background-color: white;
+    padding: 2px;
+    width: 500px;
+    overflow: hidden;
+  }
+  
+  .p_img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 3px;
+  }
+  
+  .p_img img {
+    object-fit: fill;
+    width: 100%;
+  }
+  
+  .p_i {
+
+    padding: 5px;
+    margin-top: 10px;
+  }
+  
+  
+  .i_head_p {
+    text-transform: capitalize;
+    font-size: 11px;
+    font-weight: bolder;
+    margin-top: 5px;
+  }
+  
+  .pinfoPera {
+    margin-top: 10px;
+    font-size: 12px;
+    color: rgb(45, 45, 45);
+  }
+  
+  .pinfoprofile {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .pinfoprofile img {
+    width: 30px;
+    height: 30px;
+  }
+  

@@ -5,7 +5,12 @@ import CardView from "./preview/CardView";
 const CreatePost = () => {
   const [editmodeZoom, setEditmodeZoom] = useState(false);
   const [prewmodeZoom, setPrevmodeZoom] = useState(false);
-    const [viewMode , setViewMode] = useState('card');
+  const [viewMode, setViewMode] = useState("card");
+  const [title, setTitle] = useState("");
+  const [capttion, setCaptions] = useState("");
+  const [file, setFile] = useState("");
+  const [tags, setTags] = useState([]);
+  const [tagInput, setTagInput] = useState("");
   const editModeZoomhanddle = () => {
     setEditmodeZoom(!editmodeZoom);
   };
@@ -15,7 +20,22 @@ const CreatePost = () => {
   const viewModehanddle = (Mode) => {
     setViewMode(Mode);
   };
-
+  const handleTag = () => {
+    setTags([...tags, tagInput]);
+    setTagInput("");
+  };
+  const handleSubitForm = (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append("title", title);
+    formData.append("captions", capttion);
+    formData.append("file", file);
+    formData.append("tags", tags);
+    console.log(title);
+    console.log(capttion);
+    console.log(tags);
+    console.log(file);
+  };
   return (
     <>
       <div className="createPostContainer">
@@ -38,15 +58,24 @@ const CreatePost = () => {
               <p>root</p>
             </div>
             <div className="save">
-              <button>save post</button>
+              <button onClick={handleSubitForm}>save post</button>
             </div>
           </div>
           <div className="addTag  titleBar">
-            <input type="text" name="tag" placeholder="Enter your blog ttile" />
+            <input
+              type="text"
+              name="title"
+              onChange={(e) => setTitle(e.target.value)}
+              placeholder="Enter your blog ttile"
+            />
           </div>
           <div className="caption">
             <p className="about_pera">caption</p>
-            <div className="captionEditor" contentEditable></div>
+            <div
+              className="captionEditor"
+              onInput={(e) => setCaptions(e.target.innerText)}
+              contentEditable
+            ></div>
             <div className="draft">
               <input type="checkbox" name="draft" id="draft" />
               <p>this is a draft</p>
@@ -55,12 +84,23 @@ const CreatePost = () => {
           <div className="tags">
             <p className="about_pera">tags</p>
             <div className="addTag">
-              <input type="text" name="tag" placeholder="add your blog tags" />
-              <button>add</button>
+              <input
+                type="text"
+                onChange={(e) => setTagInput(e.target.value)}
+                value={tagInput}
+                name="tag"
+                placeholder="add your blog tags"
+              />
+              <button onClick={handleTag}>add</button>
             </div>
             <ul className="tag_list">
-              <li className="mytag">blog</li>
-              <li className="mytag">coding</li>
+              {tags.map((tag, index) => {
+                return (
+                  <li key={index} className="mytag">
+                    {tag}
+                  </li>
+                );
+              })}
             </ul>
           </div>
           <div className="addImage">
@@ -75,11 +115,19 @@ const CreatePost = () => {
                     alt="add--v1"
                   />
                 </label>
-                <input type="file" name="image" id="image" />
+                <input
+                  type="file"
+                  onChange={(e) => setFile(e.target.files[0])}
+                  name="image"
+                  id="image"
+                />
               </div>
-              <div className="add">
-                <img src="https://picsum.photos/200/300" alt="" />
-              </div>
+              {file && (
+                <div className="add">
+                  <img src={URL.createObjectURL(file)} alt="" />
+                </div>
+              )}
+             
             </div>
           </div>
           <div className="timeprosses">
@@ -106,16 +154,12 @@ const CreatePost = () => {
             </p>
           </div>
           <div className="previde_mode_switch">
-            <button onClick={()=>viewModehanddle('card')} >card View</button>
-            <button  onClick={()=>viewModehanddle('blog')} >BLog view</button>
+            <button onClick={() => viewModehanddle("card")}>card View</button>
+            <button onClick={() => viewModehanddle("blog")}>BLog view</button>
           </div>
-          {
-            viewMode === 'card'? (
-              <CardView />
-            ) : (
-              <BlogView />
-            )
-          }
+          <div className="view">
+            {viewMode === "card" ? <CardView /> : <BlogView />}
+          </div>
         </div>
       </div>
     </>
