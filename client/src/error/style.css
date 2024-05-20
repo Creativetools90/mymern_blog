@@ -1,0 +1,11 @@
+.error{
+    text-align: center;
+    padding: 80px;
+    text-transform: capitalize;
+}
+
+.S_code{
+    font-size: 100px;
+    margin-top: 20px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}

@@ -10,6 +10,7 @@ import AdminPost from "./admin/AdminPost";
 import Setting from "./admin/Setting";
 import CreatePost from "./admin/CreatePost";
 import UpdatePost from "./admin/UpdatePost";
+import NotValidRoute from "./error/NotValidRoute";
 import "./App.css";
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
         </Route>
         <Route path="/Adminlogin" element={<AdminLogin />} />
         <Route path="/AdminSatup" element={<AdminSatup />} />
+        <Route path="*" element={<NotValidRoute/>} />
       </Routes>
     </>
   );

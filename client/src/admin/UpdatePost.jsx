@@ -1,11 +1,13 @@
 import React from "react";
-import { useState , useEffect } from "react";
+import { useState , useEffect,useContext } from "react";
 import BlogView from "./preview/BlogView";
 import CardView from "./preview/CardView";
 import { toast } from "react-hot-toast";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import { MyAdminContext } from "./AdminContext";
 const UpdatePost = () => {
+  const { AdminUserName } = useContext(MyAdminContext);
   const [editmodeZoom, setEditmodeZoom] = useState(false);
   const [prewmodeZoom, setPrevmodeZoom] = useState(false);
   const [viewMode, setViewMode] = useState("card");
@@ -45,25 +47,26 @@ const UpdatePost = () => {
     formData.append("caption", capttion);
     formData.append("file", file);
     formData.append("tag", tags);
+    formData.append("rootUser", AdminUserName.user);
 
-    try {
-      await axios
-        .post("http://localhost:4000/admin/createPost", formData)
-        .then((res) => {
-          toast.success(res.data.msg, {
-            position: "top-right",
-            duration: 900,
-          });
-        })
-        .catch((e) => {
-          toast.error(e.response.data.msg, {
-            position: "top-right",
-            duration: 900,
-          });
-        });
-    } catch (e) {
-      console.log("error", e);
-    }
+    // try {
+    //   await axios
+    //     .post("http://localhost:4000/admin/createPost", formData)
+    //     .then((res) => {
+    //       toast.success(res.data.msg, {
+    //         position: "top-right",
+    //         duration: 900,
+    //       });
+    //     })
+    //     .catch((e) => {
+    //       toast.error(e.response.data.msg, {
+    //         position: "top-right",
+    //         duration: 900,
+    //       });
+    //     });
+    // } catch (e) {
+    //   console.log("error", e);
+    // }
   };
 
   return (
@@ -85,7 +88,7 @@ const UpdatePost = () => {
               <div className="profile_pic1">
                 <img src="/adminAssets/tools.png" alt="" />
               </div>
-              <p>root</p>
+              <p>{AdminUserName.user}</p>
             </div>
             <div className="save">
               <button onClick={handleSubitForm}>save post</button>

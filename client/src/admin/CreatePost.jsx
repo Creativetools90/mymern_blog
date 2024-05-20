@@ -1,10 +1,12 @@
 import React from "react";
-import { useState } from "react";
+import { useState , useContext } from "react";
 import BlogView from "./preview/BlogView";
 import CardView from "./preview/CardView";
 import { toast } from "react-hot-toast";
 import axios from "axios";
+import { MyAdminContext } from "./AdminContext";
 const CreatePost = () => {
+  const { AdminUserName } = useContext(MyAdminContext);
   const [editmodeZoom, setEditmodeZoom] = useState(false);
   const [prewmodeZoom, setPrevmodeZoom] = useState(false);
   const [viewMode, setViewMode] = useState("card");
@@ -33,6 +35,7 @@ const CreatePost = () => {
     formData.append("caption", capttion);
     formData.append("file", file);
     formData.append("tag", tags);
+    formData.append("rootUser", AdminUserName.user);
 
     try {
       await axios
@@ -72,7 +75,7 @@ const CreatePost = () => {
               <div className="profile_pic1">
                 <img src="/adminAssets/tools.png" alt="" />
               </div>
-              <p>root</p>
+              <p> {AdminUserName.user} </p>
             </div>
             <div className="save">
               <button onClick={handleSubitForm}>save post</button>

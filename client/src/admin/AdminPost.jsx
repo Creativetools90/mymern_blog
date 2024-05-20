@@ -39,7 +39,7 @@ const AdminPost = () => {
                   <div className="profile_pic">
                     <img src="/adminAssets/tools.png" alt="" />
                   </div>
-                  <h2 className="user">root</h2>
+                  <h2 className="user">{v.rootUser}</h2>
                 </div>
                 <div className="postinfo">
                   <h2 className="title">{v.title}</h2>

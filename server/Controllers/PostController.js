@@ -7,6 +7,7 @@ export const CreatePost = async (req, res) => {
       caption: req.body.caption,
       tag : req.body.tag,
       img: req.file.filename,
+      rootUser:req.body.rootUser,
     });
     if (!postData) return res.status(404).json({ msg: "post not found" });
     const savePost = await postData.save();

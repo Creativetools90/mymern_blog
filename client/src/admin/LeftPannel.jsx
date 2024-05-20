@@ -4,7 +4,12 @@ import peaple from "/adminAssets/icon/peaple.svg";
 import post from "/adminAssets/icon/post.svg";
 import admin from "/adminAssets/icon/admin.svg";
 import { Link } from "react-router-dom";
+import Cookies from "js-cookie";
 const LeftPannel = () => {
+  const logout = ()=>{
+    Cookies.remove("AdminToken")
+    window.location.href = "/";
+  }
   return (
     <div className="leftPannel">
       <div className="left_optionMenuBar">
@@ -33,7 +38,7 @@ const LeftPannel = () => {
       </div>
       <div className="exitBar">
         <div className="bar_e">
-          <button>exit</button>
+          <button onClick={logout} >exit</button>
         </div>
       </div>
     </div>
